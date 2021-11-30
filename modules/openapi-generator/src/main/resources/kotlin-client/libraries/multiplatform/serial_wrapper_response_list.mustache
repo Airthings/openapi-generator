@@ -1,8 +1,8 @@
     @Serializable
-    private class {{operationIdCamelCase}}Response(val value: List<{{returnBaseType}}>) {
+    private class {{operationIdCamelCase}}Response(val value: kotlin.collections.{{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{returnBaseType}}>) {
         @Serializer({{operationIdCamelCase}}Response::class)
         {{#nonPublicApi}}internal {{/nonPublicApi}}companion object : KSerializer<{{operationIdCamelCase}}Response> {
-            private val serializer: KSerializer<List<{{returnBaseType}}>> = serializer<List<{{returnBaseType}}>>()
+            private val serializer: KSerializer<kotlin.collections.{{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{returnBaseType}}>> = serializer<kotlin.collections.{{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{returnBaseType}}>>()
             override val descriptor = serializer.descriptor
             override fun serialize(encoder: Encoder, obj: {{operationIdCamelCase}}Response) = serializer.serialize(encoder, obj.value)
             override fun deserialize(decoder: Decoder) = {{operationIdCamelCase}}Response(serializer.deserialize(decoder))

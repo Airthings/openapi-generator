@@ -141,10 +141,10 @@ class PetApi(
     }
 
     @Serializable
-    private class FindPetsByStatusResponse(val value: List<Pet>) {
+    private class FindPetsByStatusResponse(val value: kotlin.collections.List<Pet>) {
         @Serializer(FindPetsByStatusResponse::class)
         companion object : KSerializer<FindPetsByStatusResponse> {
-            private val serializer: KSerializer<List<Pet>> = serializer<List<Pet>>()
+            private val serializer: KSerializer<kotlin.collections.List<Pet>> = serializer<kotlin.collections.List<Pet>>()
             override val descriptor = serializer.descriptor
             override fun serialize(encoder: Encoder, obj: FindPetsByStatusResponse) = serializer.serialize(encoder, obj.value)
             override fun deserialize(decoder: Decoder) = FindPetsByStatusResponse(serializer.deserialize(decoder))
@@ -185,10 +185,10 @@ class PetApi(
     }
 
     @Serializable
-    private class FindPetsByTagsResponse(val value: List<Pet>) {
+    private class FindPetsByTagsResponse(val value: kotlin.collections.List<Pet>) {
         @Serializer(FindPetsByTagsResponse::class)
         companion object : KSerializer<FindPetsByTagsResponse> {
-            private val serializer: KSerializer<List<Pet>> = serializer<List<Pet>>()
+            private val serializer: KSerializer<kotlin.collections.List<Pet>> = serializer<kotlin.collections.List<Pet>>()
             override val descriptor = serializer.descriptor
             override fun serialize(encoder: Encoder, obj: FindPetsByTagsResponse) = serializer.serialize(encoder, obj.value)
             override fun deserialize(decoder: Decoder) = FindPetsByTagsResponse(serializer.deserialize(decoder))
